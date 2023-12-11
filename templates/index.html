@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Information Retrieval</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-zME4eUq8hj9P0maqF8LvPgWGrUUBQdTNZj+D0fczG7z9M+YmZU7RKeX1MT3mKt+rwkgaJbk9Im83B1VhICbweQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+
+        h1, h2 {
+            color: #333;
+            color: rgb(241, 74, 13);
+            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input {
+            padding: 8px;
+            width: 300px;
+            border-color: rgb(0, 0, 0);
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 15px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            color: #888;
+        }
+
+        .favorite {
+            cursor: pointer;
+            color: #555;
+            font-size: 30px;
+        }
+
+        .favorite.clicked {
+            color: red;
+        }
+
+        .plot {
+            max-height: 5.7em;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .plot.expanded {
+            max-height: none;
+        }
+
+        .expand-btn {
+            cursor: pointer;
+            background-color: green;
+            color: white;
+            text-decoration: none;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            padding: 5px;
+        }
+
+        .sticky-feedback {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @keyframes zoomInOut {
+            0% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.7;
+            }
+        }
+
+        .favorite.clicked svg {
+            animation: zoomInOut 1s infinite;
+        }
+    
+    .container {
+      max-width: 600px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .copy-icon {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      cursor: pointer;
+      font-size: 18px;
+      color: #007bff;
+    }
+
+    .tooltip {
+      position: absolute;
+      top: 6px;
+      right: 30px;
+      background-color: #007bff;
+      color: #fff;
+      padding: 5px;
+      border-radius: 4px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .copy-icon:hover+.tooltip {
+      opacity: 1;
+    }
+    h4{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+    }
+    </style>
+</head>
+
+<body>
+    <div class="">
+        <h1>Movie Plot Retrieval</h1>
+        <form method="post" action="/" onsubmit="">
+            <label for="query">Enter your query:</label>
+            <input type="text" id="query" name="query" required>
+            <button type="submit" class="btn btn-outline-success btn-lg" onclick="">Submit</button>
+        </form>
+
+        {% if not query and not results %}
+        <div class="container" id="copyContainer" style="display:block;">
+            <div class="copy-icon" onclick="copyContent()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
+                    <path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z" />
+                </svg>
+            </div>
+            <div class="tooltip">Copy</div>
+            <div>
+                <h4>Try this query:</h4>
+                <div class="text-secondary">
+                    A bartender is working at a saloon, serving drinks to customers. After he fills a stereotypically Irish man's bucket with beer, Carrie Nation and her followers burst inside. They assault the Irish man, pulling his hat over his eyes and then dumping the beer over his head. The group then begin wrecking the bar, smashing the fixtures, mirrors, and breaking the cash register. The bartender then sprays             </div>
+        </div>
+        {% endif %}
+
+        {% if query %}
+        {% if results %}
+        <table border="1" id="data-table">
+            <thead>
+                <tr>
+                    <th>Release Year</th>
+                    <th>Title</th>
+                    <th>Origin/Ethnicity</th>
+                    <th>Director</th>
+                    <th>Cast</th>
+                    <th>Genre</th>
+                    <th>Plot</th>
+                    <th>Relevant</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in results %}
+                <tr>
+                    <td>{{ row['Release Year'] }}</td>
+                    <td>{{ row['Title'] }}</td>
+                    <td>{{ row['Origin/Ethnicity'] }}</td>
+                    <td>{{ row['Director'] }}</td>
+                    <td>{{ row['Cast'] }}</td>
+                    <td>{{ row['Genre'] }}</td>
+                    <td>
+                        <div class="plot" onclick="togglePlot(this)">
+                            {{ row['Plot'] }}
+                            <button class="expand-btn">[Read More]</button>
+                        </div>
+                    </td>
+                    <td class="favorite" onclick="toggleFavorite(this)">
+                        <span data-value="0" style="font-size: 30px; color: #555;"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512" style="color: rgb(0, 0, 0); stroke: white; stroke-width: 5px;">
+                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+                            </svg>
+                        </span>
+                        <span data-value="1" style="display:none;animation: zoomInOut 0.5s;"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512">
+                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9" style="fill: green;"></path>
+                            </svg></span>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <button id="submit-btn" class="sticky-feedback" onclick="submitFeedback()">Submit Feedback</button>
+        {% else %}
+        <p>No results found.</p>
+        {% endif %}
+        {% endif %}
+    </div>
+    <script>
+        
+        function copyContent() {
+            const contentToCopy = document.querySelector('.container');
+            const range = document.createRange();
+            range.selectNode(contentToCopy);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
+
+            try {
+                document.execCommand('copy');
+                const tooltip = document.querySelector('.tooltip');
+                tooltip.textContent = 'Copied!';
+                setTimeout(() => {
+                    tooltip.textContent = 'Copy';
+                }, 1500);
+            } catch (error) {
+                console.error('Unable to copy:', error);
+            } finally {
+                window.getSelection().removeAllRanges();
+            }
+        }
+
+        function toggleFavorite(element) {
+            const valueZero = element.querySelector('[data-value="0"]');
+            const valueOne = element.querySelector('[data-value="1"]');
+
+            if (valueZero.style.display === 'none') {
+                valueZero.style.display = '';
+                valueOne.style.display = 'none';
+                element.classList.remove('clicked');
+            } else {
+                valueZero.style.display = 'none';
+                valueOne.style.display = '';
+                element.classList.add('clicked');
+
+                const checkIcon = valueOne.querySelector('svg');
+                checkIcon.classList.add('animated-check');
+                setTimeout(() => checkIcon.classList.remove('animated-check'), 500);
+            }
+        }
+
+        function togglePlot(element) {
+            element.classList.toggle('expanded');
+        }
+
+        function submitFeedback() {
+            const table = document.getElementById("data-table");
+            const rows = Array.from(table.querySelectorAll("tbody tr"));
+            const selectedRows = rows.filter(row => {
+                const checkbox = row.querySelector(".favorite");
+                return checkbox.classList.contains('clicked');
+            });
+
+            const unselectedRows = rows.filter(row => {
+                const checkbox = row.querySelector(".favorite");
+                return !checkbox.classList.contains('clicked');
+            });
+
+            table.querySelector("tbody").innerHTML = "";
+            selectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
+            unselectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
+            openFeedbackForm()
+        }
+
+        function openFeedbackForm() {
+            const favoriteElements = document.querySelectorAll('.favorite');
+            const feedback = Array.from(favoriteElements, (element) => {
+                return element.classList.contains('clicked') ? 1 : 0;
+            });
+
+            console.log('Favorite Symbol Values:', feedback);
+
+            fetch('/?feedback=' + feedback.join(','), {
+                method: 'GET'
+            }).then(response => response.json())
+                .then(data => {
+                    if (data && 'recall' in data && 'precision' in data && 'feedback' in data) {
+                        alert("Recall: " + data.recall + "\nPrecision: " + (data.precision ? data.precision.map(p => p.toFixed(2)).join(', ') : 'N/A'));
+                        updateTable(data.feedback);
+                    } else {
+                        console.error('Error: Invalid data structure from the server');
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+</body>
+
+</html>
