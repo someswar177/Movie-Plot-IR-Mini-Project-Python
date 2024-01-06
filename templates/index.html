@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Information Retrieval</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-zME4eUq8hj9P0maqF8LvPgWGrUUBQdTNZj+D0fczG7z9M+YmZU7RKeX1MT3mKt+rwkgaJbk9Im83B1VhICbweQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-zME4eUq8hj9P0maqF8LvPgWGrUUBQdTNZj+D0fczG7z9M+YmZU7RKeX1MT3mKt+rwkgaJbk9Im83B1VhICbweQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://kit.fontawesome.com/5ded69366c.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,10 +21,11 @@
             background-color: #f4f4f4;
         }
 
-        h1, h2 {
+        h1,
+        h2 {
             color: #333;
             color: rgb(241, 74, 13);
-            font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
         }
 
         form {
@@ -56,13 +63,15 @@
             margin-top: 20px;
         }
 
-        th, td {
+        th,
+        td {
             border: 1px solid #ddd;
             padding: 8px;
             text-align: left;
         }
 
         th {
+             text-align: center;
             background-color: #4caf50;
             color: white;
         }
@@ -139,43 +148,157 @@
         .favorite.clicked svg {
             animation: zoomInOut 1s infinite;
         }
-    
-    .container {
-      max-width: 600px;
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 8px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      position: relative;
-    }
 
-    .copy-icon {
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      font-size: 18px;
-      color: #007bff;
-    }
+        .container {
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius:50px  15px ;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
 
-    .tooltip {
-      position: absolute;
-      top: 6px;
-      right: 30px;
-      background-color: #007bff;
-      color: #fff;
-      padding: 5px;
-      border-radius: 4px;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
+        .copy-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #007bff;
+        }
 
-    .copy-icon:hover+.tooltip {
-      opacity: 1;
-    }
-    h4{
-        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-    }
+        .tooltip {
+            position: absolute;
+            top: 6px;
+            right: 30px;
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px;
+            border-radius: 4px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .copy-icon:hover+.tooltip {
+            opacity: 1;
+        }
+
+        h4 {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+        }
+
+        /* ================================================================================ */
+        marquee {
+            margin-top: 5%;
+        }
+
+        .marqu-content {
+            text-align: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 20px;
+            padding: 10px;
+        }
+
+        .team-details {
+            margin-top: 2%;
+            padding: 0;
+            border-radius: 10px 10px 0px 0px;
+            background: #9c2f82;
+            display: flex;
+            flex-direction: column;
+            height: 90vh;
+            width: 100vw;
+        }
+
+        .team-details-header {
+            color: #fff;
+            text-align: center;
+            margin-top: 3%;
+            margin-bottom: 0%;
+        }
+
+        .cards {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .card {
+            padding: 2% 3.5%;
+            border-radius: 10px;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 5%;
+            transition: transform 0.4s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+        }
+
+        .img {
+            height: 130px;
+            width: 130px;
+            border-radius: 50%;
+            padding: 3px;
+            background-color: #9c2f82;
+        }
+
+        .img img {
+            height: 100%;
+            width: 100%;
+            border-radius: 50%;
+            border: 3px solid white;
+        }
+
+        .name {
+            font-size: 20px;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        .job {
+            font-size: 20px;
+            color: #9c2f82;
+            text-align: center;
+        }
+
+        .icons {
+            margin-top: 10px;
+            display: flex;
+        }
+
+        .icons a {
+            text-align: center;
+            line-height: 33px;
+            height: 35px;
+            width: 35px;
+            margin: 0 4px;
+            font-size: 14px;
+            color: #FFF;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            background: #9c2f82;
+            transition: transform 0.3s ease;
+        }
+
+        .icons a:hover {
+            transform: translateY(-3px);
+            color: #9c2f82;
+            background-color: #fff;
+            border-color: #9c2f82;
+        }
+
+        footer {
+            background-color: #1f1e1e;
+            color: #ddd;
+            border-radius: 0px 0px 10px 10px;
+            width: 100vw;
+            padding: 5%;
+        }
     </style>
 </head>
 
@@ -192,153 +315,211 @@
         <div class="container" id="copyContainer" style="display:block;">
             <div class="copy-icon" onclick="copyContent()">
                 <svg xmlns="http://www.w3.org/2000/svg" height="16" width="14" viewBox="0 0 448 512">
-                    <path d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z" />
+                    <path
+                        d="M384 336H192c-8.8 0-16-7.2-16-16V64c0-8.8 7.2-16 16-16l140.1 0L400 115.9V320c0 8.8-7.2 16-16 16zM192 384H384c35.3 0 64-28.7 64-64V115.9c0-12.7-5.1-24.9-14.1-33.9L366.1 14.1c-9-9-21.2-14.1-33.9-14.1H192c-35.3 0-64 28.7-64 64V320c0 35.3 28.7 64 64 64zM64 128c-35.3 0-64 28.7-64 64V448c0 35.3 28.7 64 64 64H256c35.3 0 64-28.7 64-64V416H272v32c0 8.8-7.2 16-16 16H64c-8.8 0-16-7.2-16-16V192c0-8.8 7.2-16 16-16H96V128H64z" />
                 </svg>
             </div>
             <div class="tooltip">Copy</div>
             <div>
                 <h4>Try this query:</h4>
                 <div class="text-secondary">
-                    A bartender is working at a saloon, serving drinks to customers. After he fills a stereotypically Irish man's bucket with beer, Carrie Nation and her followers burst inside. They assault the Irish man, pulling his hat over his eyes and then dumping the beer over his head. The group then begin wrecking the bar, smashing the fixtures, mirrors, and breaking the cash register. The bartender then sprays             </div>
+                    A bartender is working at a saloon, serving drinks to customers. After he fills a stereotypically
+                    Irish man's bucket with beer, Carrie Nation and her followers burst inside. They assault the Irish
+                    man, pulling his hat over his eyes and then dumping the beer over his head. The group then begin
+                    wrecking the bar, smashing the fixtures, mirrors, and breaking the cash register. The bartender then
+                    sprays </div>
+            </div>
+            {% endif %}
+
+            {% if query %}
+            {% if results %}
+            <table border="1" id="data-table">
+                <thead>
+                    <tr>
+                        <th>Release Year</th>
+                        <th>Title</th>
+                        <th>Origin/Ethnicity</th>
+                        <th>Director</th>
+                        <th>Cast</th>
+                        <th>Genre</th>
+                        <th>Plot</th>
+                        <th>Relevant</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in results %}
+                    <tr>
+                        <td>{{ row['Release Year'] }}</td>
+                        <td>{{ row['Title'] }}</td>
+                        <td>{{ row['Origin/Ethnicity'] }}</td>
+                        <td>{{ row['Director'] }}</td>
+                        <td>{{ row['Cast'] }}</td>
+                        <td>{{ row['Genre'] }}</td>
+                        <td>
+                            <div class="plot" onclick="togglePlot(this)">
+                                {{ row['Plot'] }}
+                                <button class="expand-btn">[Read More]</button>
+                            </div>
+                        </td>
+                        <td class="favorite" onclick="toggleFavorite(this)">
+                            <span data-value="0" style="font-size: 30px; color: #555;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"
+                                    style="color: rgb(0, 0, 0); stroke: white; stroke-width: 5px;">
+                                    <path
+                                        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
+                                </svg>
+                            </span>
+                            <span data-value="1" style="display:none;animation: zoomInOut 0.5s;"><svg
+                                    xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512">
+                                    <path
+                                        d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9"
+                                        style="fill: green;"></path>
+                                </svg></span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <button id="submit-btn" class="sticky-feedback" onclick="submitFeedback()">Submit Feedback</button>
+            {% else %}
+            <p>No results found.</p>
+            {% endif %}
+            {% endif %}
+
+
         </div>
-        {% endif %}
+        <!-- <marquee style="background: #DF2771; margin-top: 50px;" direction="left" scrollamount="15">
+            <div class="marqu-content">“Movie Plot- IR Project - Search any Movie Plot or Movie Name as query and get the top-15 relavent Movie List to the input query...”</div>
+        </marquee> -->
+        <div class="team-details">
+            <h2 class="team-details-header">Team Details</h2>
+            <div class="cards">
+                <div class="card">
+                    <div class="img">
+                        <img src="../static/images/someswar.jpg" alt="Photo">
+                    </div>
+                    <div class="details">
+                        <div class="name">Someswara Sai</div>
+                        <div class="job">IIITS Student</div>
+                    </div>
+                    <div class="icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="img">
+                        <img src="../static/images/manjith.jpg" alt="">
+                    </div>
+                    <div class="details">
+                        <div class="name">Manjith Kumar</div>
+                        <div class="job">IIITS Student</div>
+                    </div>
+                    <div class="icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <div class="pt-1">Copyright © 2022 Created By IIITS students, All Rights Reserved.</div>
+            <br>
+            <p><img src="data:image/jpeg;base64,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"
+                    style="height: 150px; width: auto;border-radius: 15px;"> Indian
+                Institute of Information Technology - Sricity, Andhra Pradesh</p><br>
+        </footer>
+        <script>
 
-        {% if query %}
-        {% if results %}
-        <table border="1" id="data-table">
-            <thead>
-                <tr>
-                    <th>Release Year</th>
-                    <th>Title</th>
-                    <th>Origin/Ethnicity</th>
-                    <th>Director</th>
-                    <th>Cast</th>
-                    <th>Genre</th>
-                    <th>Plot</th>
-                    <th>Relevant</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in results %}
-                <tr>
-                    <td>{{ row['Release Year'] }}</td>
-                    <td>{{ row['Title'] }}</td>
-                    <td>{{ row['Origin/Ethnicity'] }}</td>
-                    <td>{{ row['Director'] }}</td>
-                    <td>{{ row['Cast'] }}</td>
-                    <td>{{ row['Genre'] }}</td>
-                    <td>
-                        <div class="plot" onclick="togglePlot(this)">
-                            {{ row['Plot'] }}
-                            <button class="expand-btn">[Read More]</button>
-                        </div>
-                    </td>
-                    <td class="favorite" onclick="toggleFavorite(this)">
-                        <span data-value="0" style="font-size: 30px; color: #555;"><svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512" style="color: rgb(0, 0, 0); stroke: white; stroke-width: 5px;">
-                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9z" />
-                            </svg>
-                        </span>
-                        <span data-value="1" style="display:none;animation: zoomInOut 0.5s;"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512">
-                                <path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209L241 337c-9.4 9.4-24.6 9.4-33.9 0l-64-64c-9.4-9.4-9.4-24.6 0-33.9s24.6-9.4 33.9 0l47 47L335 175c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9" style="fill: green;"></path>
-                            </svg></span>
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-        <button id="submit-btn" class="sticky-feedback" onclick="submitFeedback()">Submit Feedback</button>
-        {% else %}
-        <p>No results found.</p>
-        {% endif %}
-        {% endif %}
-    </div>
-    <script>
-        
-        function copyContent() {
-            const contentToCopy = document.querySelector('.container');
-            const range = document.createRange();
-            range.selectNode(contentToCopy);
-            window.getSelection().removeAllRanges();
-            window.getSelection().addRange(range);
-
-            try {
-                document.execCommand('copy');
-                const tooltip = document.querySelector('.tooltip');
-                tooltip.textContent = 'Copied!';
-                setTimeout(() => {
-                    tooltip.textContent = 'Copy';
-                }, 1500);
-            } catch (error) {
-                console.error('Unable to copy:', error);
-            } finally {
+            function copyContent() {
+                const contentToCopy = document.querySelector('.container');
+                const range = document.createRange();
+                range.selectNode(contentToCopy);
                 window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+
+                try {
+                    document.execCommand('copy');
+                    const tooltip = document.querySelector('.tooltip');
+                    tooltip.textContent = 'Copied!';
+                    setTimeout(() => {
+                        tooltip.textContent = 'Copy';
+                    }, 1500);
+                } catch (error) {
+                    console.error('Unable to copy:', error);
+                } finally {
+                    window.getSelection().removeAllRanges();
+                }
             }
-        }
 
-        function toggleFavorite(element) {
-            const valueZero = element.querySelector('[data-value="0"]');
-            const valueOne = element.querySelector('[data-value="1"]');
+            function toggleFavorite(element) {
+                const valueZero = element.querySelector('[data-value="0"]');
+                const valueOne = element.querySelector('[data-value="1"]');
 
-            if (valueZero.style.display === 'none') {
-                valueZero.style.display = '';
-                valueOne.style.display = 'none';
-                element.classList.remove('clicked');
-            } else {
-                valueZero.style.display = 'none';
-                valueOne.style.display = '';
-                element.classList.add('clicked');
+                if (valueZero.style.display === 'none') {
+                    valueZero.style.display = '';
+                    valueOne.style.display = 'none';
+                    element.classList.remove('clicked');
+                } else {
+                    valueZero.style.display = 'none';
+                    valueOne.style.display = '';
+                    element.classList.add('clicked');
 
-                const checkIcon = valueOne.querySelector('svg');
-                checkIcon.classList.add('animated-check');
-                setTimeout(() => checkIcon.classList.remove('animated-check'), 500);
+                    const checkIcon = valueOne.querySelector('svg');
+                    checkIcon.classList.add('animated-check');
+                    setTimeout(() => checkIcon.classList.remove('animated-check'), 500);
+                }
             }
-        }
 
-        function togglePlot(element) {
-            element.classList.toggle('expanded');
-        }
+            function togglePlot(element) {
+                element.classList.toggle('expanded');
+            }
 
-        function submitFeedback() {
-            const table = document.getElementById("data-table");
-            const rows = Array.from(table.querySelectorAll("tbody tr"));
-            const selectedRows = rows.filter(row => {
-                const checkbox = row.querySelector(".favorite");
-                return checkbox.classList.contains('clicked');
-            });
+            function submitFeedback() {
+                const table = document.getElementById("data-table");
+                const rows = Array.from(table.querySelectorAll("tbody tr"));
+                const selectedRows = rows.filter(row => {
+                    const checkbox = row.querySelector(".favorite");
+                    return checkbox.classList.contains('clicked');
+                });
 
-            const unselectedRows = rows.filter(row => {
-                const checkbox = row.querySelector(".favorite");
-                return !checkbox.classList.contains('clicked');
-            });
+                const unselectedRows = rows.filter(row => {
+                    const checkbox = row.querySelector(".favorite");
+                    return !checkbox.classList.contains('clicked');
+                });
 
-            table.querySelector("tbody").innerHTML = "";
-            selectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
-            unselectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
-            openFeedbackForm()
-        }
+                table.querySelector("tbody").innerHTML = "";
+                selectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
+                unselectedRows.forEach(row => table.querySelector("tbody").appendChild(row));
+                openFeedbackForm()
+            }
 
-        function openFeedbackForm() {
-            const favoriteElements = document.querySelectorAll('.favorite');
-            const feedback = Array.from(favoriteElements, (element) => {
-                return element.classList.contains('clicked') ? 1 : 0;
-            });
+            function openFeedbackForm() {
+                const favoriteElements = document.querySelectorAll('.favorite');
+                const feedback = Array.from(favoriteElements, (element) => {
+                    return element.classList.contains('clicked') ? 1 : 0;
+                });
 
-            console.log('Favorite Symbol Values:', feedback);
+                console.log('Favorite Symbol Values:', feedback);
 
-            fetch('/?feedback=' + feedback.join(','), {
-                method: 'GET'
-            }).then(response => response.json())
-                .then(data => {
-                    if (data && 'recall' in data && 'precision' in data && 'feedback' in data) {
-                        alert("Recall: " + data.recall + "\nPrecision: " + (data.precision ? data.precision.map(p => p.toFixed(2)).join(', ') : 'N/A'));
-                        updateTable(data.feedback);
-                    } else {
-                        console.error('Error: Invalid data structure from the server');
-                    }
-                })
-                .catch(error => console.error('Error:', error));
-        }
-    </script>
+                fetch('/?feedback=' + feedback.join(','), {
+                    method: 'GET'
+                }).then(response => response.json())
+                    .then(data => {
+                        if (data && 'recall' in data && 'precision' in data && 'feedback' in data) {
+                            alert("Recall: " + data.recall + "\nPrecision: " + (data.precision ? data.precision.map(p => p.toFixed(2)).join(', ') : 'N/A'));
+                            updateTable(data.feedback);
+                        } else {
+                            console.error('Error: Invalid data structure from the server');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        </script>
 </body>
 
 </html>
